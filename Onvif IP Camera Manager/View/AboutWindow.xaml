@@ -1,0 +1,51 @@
+﻿<Window x:Class="Onvif_IP_Camera_Manager.View.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="/Onvif IP Camera Manager;component/Resources/ip_camera_sdk_icon_transparent_128x128.png"
+        Title="About" Height="470" Width="410" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="92.949"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Image Margin="1,1,1,1" Source="/Onvif IP Camera Manager;component/Resources/ip_camera_icon_about_ozeki.png"/>
+        <StackPanel Grid.Row="1" Margin="7,8,7,0">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="15"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Text="Onvif IP Camera Manager" FontSize="19" FontWeight="Bold" DockPanel.Dock="Top"/>
+           
+            <TextBlock x:Name="TextBlockVersion" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="0,10,0,0">
+                <Run Language="hu-hu" Text="Version: 1.0.0"/>
+            </TextBlock>
+            
+            <TextBlock Text="This software is the copyrighted work of Ozeki." TextWrapping="Wrap" TextAlignment="Justify" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="0,20,0,0"/>
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" VerticalAlignment="Top" DockPanel.Dock="Top" Text="Use of the software is governed by the terms of the end User license agreement, which is included in the software." Margin="0,9,0,0" />
+            <DockPanel Margin="0,20,0,5" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <TextBlock TextWrapping="Wrap" Text="Internet:" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14"/>
+               
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="13">
+                    <Hyperlink NavigateUri="http://camera-sdk.com" TargetName="_top" Click="Hyperlink_Click"> http://camera-sdk.com </Hyperlink>
+                </TextBlock>
+            </DockPanel>
+            <DockPanel Margin="0,-3,0,8" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <TextBlock TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14"/>
+               
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" FontSize="13">
+                    <Hyperlink TargetName="_top" Click="email_Click"> info@camera-sdk.com</Hyperlink>
+                </TextBlock>
+            </DockPanel>
+
+            <TextBlock TextWrapping="Wrap" Text="© Copyright 2000-2014. Ozeki Informatics Ltd. All rights reserved." FontSize="13" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="0,10,0,0"/>
+           
+
+
+        </StackPanel>
+
+        <Button IsCancel="True" Grid.Row="1" Content="Close" Width="52" HorizontalAlignment="Right" Click="Button_Click" Height="25" VerticalAlignment="Bottom" Margin="0,0,10,10" />
+
+    </Grid>
+</Window>

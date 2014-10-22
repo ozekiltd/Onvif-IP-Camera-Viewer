@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Onvif_IP_Camera_Manager.View.CameraViewerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:controls="clr-namespace:Ozeki.Media.Video.Controls;assembly=VoIPSDK"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             
+             d:DesignHeight="300" d:DesignWidth="400" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  BorderBrush="Black" BorderThickness="2" Background="Transparent">
+  
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" >
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Camera:"/>
+                <ComboBox ItemsSource="{Binding ModelList}" SelectedItem="{Binding Model, Mode=TwoWay}" DisplayMemberPath="CameraInfo" Height="25" VerticalAlignment="Center" Width="235"/>
+            </StackPanel>
+        </Grid>
+      
+        <controls:VideoViewerWPF Grid.Row="1" x:Name="Viewer" Background="Black"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Grid  Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Content="File Path" Click="FilePathButton_Click" />
+                <TextBox Grid.Column="1" Text="{Binding FilePath}" />
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Width="70" Content="Snapshot" Click="SnapshotButton_Click"/>
+                <Button Grid.Column="1" Width="70" Content="Start record" Click="StartVideoButton_OnClick"/>
+                <Button Grid.Column="2" Width="70" Content="Stop record" Click="StopVideoButton_OnClick"/>
+            </Grid>
+        </Grid>
+    </Grid>
+  
+</UserControl>

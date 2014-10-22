@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Onvif_IP_Camera_Manager.View.ImageSetting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             d:DesignHeight="30" d:DesignWidth="500" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="{Binding SettingName}" HorizontalAlignment="Right"/>
+            <Slider Minimum="{Binding SliderValues.Min}" Maximum="{Binding SliderValues.Max}" Value="{Binding SliderValues.Value}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Name="ImageSettingSlide" SmallChange="1" TickPlacement="BottomRight" TickFrequency="0" LargeChange="0"  IsMoveToPointEnabled="False" Thumb.DragCompleted="SliderPropertyValueChanged" />
+            <Label HorizontalAlignment="Left" Grid.Column="2" ContentStringFormat="{}{0:N0}" Content="{Binding Value, ElementName=ImageSettingSlide}" />
+        </Grid>
+    </Grid>
+</UserControl>

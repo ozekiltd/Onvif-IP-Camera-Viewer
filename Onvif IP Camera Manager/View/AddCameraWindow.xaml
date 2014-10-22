@@ -1,0 +1,80 @@
+﻿<Window x:Class="Onvif_IP_Camera_Manager.View.AddCameraWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:model="clr-namespace:Onvif_IP_Camera_Manager.Model"
+        Title="Add custom camera" Height="270" Width="430" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" ResizeMode="CanMinimize" DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <!--<Window.Resources>
+        <model:AddCameraModel x:Key="AddCameraModel"/>
+    </Window.Resources>
+    
+    <Window.DataContext>
+        <StaticResource ResourceKey="AddCameraModel"/>
+    </Window.DataContext>-->
+
+    <Grid Background="#FFE5E5E5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Camera URL-->
+        <Label Grid.Row="1" Grid.Column="0" Content="Camera URL:" HorizontalAlignment="Right"/>
+        <!--<Border Grid.Row="1" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="1" Margin="5,2">-->
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding AddCameraModel.CameraUrl, Mode=TwoWay}" Margin="5,2"/>
+        <!--</Border>-->
+
+        <!--example URLs-->
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
+                    <Setter Property="FontSize" Value="11"/>
+                    <Setter Property="Foreground" Value="#FF888888"/>
+                </Style>
+            </Grid.Resources>
+
+            <Label Grid.Row="0" Content="Examples:"/>
+            <Label Grid.Row="1" Content="{Binding AddCameraModel.Example1, Mode=OneWay}" Margin="0,-5,0,0"/>
+            <Label Grid.Row="2" Content="{Binding AddCameraModel.Example2, Mode=OneWay}" Margin="0,-15,0,0"/>
+            <Label Grid.Row="3" Content="{Binding AddCameraModel.Example3, Mode=OneWay}" Margin="0,-25,0,0"/>
+        </Grid>
+
+        <!--UserName-->
+        <Label Grid.Row="3" Grid.Column="0" Content="UserName:" HorizontalAlignment="Right"/>
+        <!--<Border Grid.Row="3" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="1" Margin="5,2,100,2">-->
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding AddCameraModel.UserName, Mode=TwoWay}" Margin="5,2,100,2"/>
+        <!--</Border>-->
+        <Label Grid.Row="3" Grid.Column="1" Content="(optional)" Margin="0,0,20,0" HorizontalAlignment="Right"/>
+
+        <!--Password-->
+        <Label Grid.Row="4" Grid.Column="0" Content="Password:" HorizontalAlignment="Right"/>
+        <!--<Border Grid.Row="4" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="1" Margin="5,2,100,2">-->
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding AddCameraModel.Password, Mode=TwoWay}" Margin="5,2,100,2"/>
+        <!--</Border>-->
+        <Label Grid.Row="4" Grid.Column="1" Content="(optional)" Margin="0,0,20,0" HorizontalAlignment="Right"/>
+
+        <!--Buttons-->
+        <Button Content="Add camera" Width="90" Height="26" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Command="{Binding AddCameraModel.AddCameraCommand}"/>
+        <Button Content="Clear fields" Width="90" Height="26" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" Command="{Binding AddCameraModel.ClearCommand}"/>
+    </Grid>
+</Window>
